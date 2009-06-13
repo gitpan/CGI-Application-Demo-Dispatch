@@ -1,0 +1,19 @@
+Build.PL
+Changelog.ini
+CHANGES
+htdocs/assets/templates/cgi/application/demo/dispatch/table.tmpl
+htdocs/assets/templates/cgi/application/demo/dispatch/web.page.tmpl
+htdocs/local/dispatch
+httpd/cgi-bin/dispatch.cgi
+httpd/conf/httpd.conf
+lib/CGI/Application/Demo/Dispatch.pm
+lib/CGI/Application/Demo/Dispatch/Base.pm
+lib/CGI/Application/Demo/Dispatch/Menu.pm
+lib/CGI/Application/Demo/Dispatch/Organization.pm
+lib/CGI/Application/Demo/Dispatch/Person.pm
+Makefile.PL
+MANIFEST			This list of files
+README
+t/pod.t
+t/test.t
+META.yml
