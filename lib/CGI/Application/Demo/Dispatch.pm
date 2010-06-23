@@ -3,7 +3,7 @@ package CGI::Application::Demo::Dispatch;
 # Author:
 #	Ron Savage <ron@savage.net.au>
 
-our $VERSION = '1.00';
+our $VERSION = '1.03';
 
 # -----------------------------------------------
 
@@ -17,7 +17,7 @@ C<CGI::Application::Demo::Dispatch> - Demonstrate the delights of CGI::Applicati
 
 A classic CGI script:
 
-	use strict; 
+	use strict;
 	use warnings;
 
 	use CGI;
@@ -131,7 +131,8 @@ help on unpacking and installing distros.
 
 =head1 Installation
 
-All these assume your doc root is /home/ron/httpd/prefork/htdocs.
+All these assume your doc root is /var/www.
+This really should be read from a config file.
 
 You will need to patch C<CGI::Application::Demo::Dispatch::Base>, since it where C<HTML::Template>'s
 tmpl_path is stored, if using another path.
@@ -205,8 +206,7 @@ Home page: http://savage.net.au/index.html
 
 =head1 Copyright
 
-Australian copyright (c) 2009, Ron Savage. All rights reserved.
-
+Australian copyright (c) 2009, Ron Savage.
 	All Programs of mine are 'OSI Certified Open Source Software';
 	you can redistribute them and/or modify them under the terms of
 	The Artistic License, a copy of which is available at:

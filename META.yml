@@ -1,38 +1,40 @@
 ---
-name: CGI-Application-Demo-Dispatch
-version: 1.00
+abstract: 'Help study usage of CGI::Application::Dispatch'
 author:
   - 'Ron Savage <ron@savage.net.au>'
-abstract: Help study usage of CGI::Application::Dispatch
+build_requires:
+  Test::More: 0
+  Test::Pod: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
 license: artistic
-resources:
-  license: http://opensource.org/licenses/artistic-license.php
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: CGI-Application-Demo-Dispatch
+provides:
+  CGI::Application::Demo::Dispatch:
+    file: lib/CGI/Application/Demo/Dispatch.pm
+    version: 1.03
+  CGI::Application::Demo::Dispatch::Base:
+    file: lib/CGI/Application/Demo/Dispatch/Base.pm
+    version: 1.03
+  CGI::Application::Demo::Dispatch::Menu:
+    file: lib/CGI/Application/Demo/Dispatch/Menu.pm
+    version: 1.03
+  CGI::Application::Demo::Dispatch::Organization:
+    file: lib/CGI/Application/Demo/Dispatch/Organization.pm
+    version: 1.03
+  CGI::Application::Demo::Dispatch::Person:
+    file: lib/CGI/Application/Demo/Dispatch/Person.pm
+    version: 1.03
 requires:
   CGI: 0
   CGI::Application: 0
   CGI::Application::Dispatch: 0
   FCGI::ProcManager: 0
   HTML::Template: 0
-build_requires:
-  Test::More: 0
-  Test::Pod: 0
-provides:
-  CGI::Application::Demo::Dispatch:
-    file: lib/CGI/Application/Demo/Dispatch.pm
-    version: 1.00
-  CGI::Application::Demo::Dispatch::Base:
-    file: lib/CGI/Application/Demo/Dispatch/Base.pm
-    version: 1.00
-  CGI::Application::Demo::Dispatch::Menu:
-    file: lib/CGI/Application/Demo/Dispatch/Menu.pm
-    version: 1.00
-  CGI::Application::Demo::Dispatch::Organization:
-    file: lib/CGI/Application/Demo/Dispatch/Organization.pm
-    version: 1.00
-  CGI::Application::Demo::Dispatch::Person:
-    file: lib/CGI/Application/Demo/Dispatch/Person.pm
-    version: 1.00
-generated_by: Module::Build version 0.280801
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://opensource.org/licenses/artistic-license.php
+version: 1.03

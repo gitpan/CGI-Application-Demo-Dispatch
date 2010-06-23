@@ -7,7 +7,7 @@ use base 'CGI::Application';
 use strict;
 use warnings;
 
-our $VERSION = '1.00';
+our $VERSION = '1.03';
 
 # -----------------------------------------------
 
@@ -15,7 +15,7 @@ sub cgiapp_init
 {
 	my($self) = @_;
 
-	$self -> tmpl_path('/home/ron/httpd/prefork/htdocs/assets/templates/cgi/application/demo/dispatch');
+	$self -> tmpl_path('/var/www/assets/templates/cgi/application/demo/dispatch');
 
 } # End of cgiapp_init.
 
