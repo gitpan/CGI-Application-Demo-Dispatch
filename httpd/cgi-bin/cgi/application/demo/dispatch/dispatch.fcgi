@@ -1,14 +1,8 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 # Name:
 # dispatch.
-#
-# Note:
-# Need use lib here because CGI scripts don't have access to
-# the PerlSwitches used in Apache's httpd.conf.
-# Also, it saves having to install the module repeatedly during testing.
 
-use lib '/home/ron/perl.modules/CGI-Application-Demo-Dispatch/lib';
 use strict;
 use warnings;
 
@@ -18,7 +12,7 @@ use FCGI::ProcManager;
 
 # ---------------------
 
-my($proc_manager) = FCGI::ProcManager -> new({processes => 2});
+my($proc_manager) = FCGI::ProcManager -> new({n_processes => 2});
 
 $proc_manager -> pm_manage();
 
@@ -35,7 +29,7 @@ while ($cgi = CGI::Fast -> new() )
 	 table       =>
 	 [
 	  ''         => {app => 'Menu', rm => 'display'},
-	  ':app'     => {rm => 'initialize'},
+	  ':app'     => {rm => 'display'},
 	  ':app/:rm' => {},
 	 ],
 	);

@@ -1,14 +1,8 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 # Name:
 # dispatch.cgi.
-#
-# Note:
-# Need use lib here because CGI scripts don't have access to
-# the PerlSwitches used in Apache's httpd.conf.
-# Also, it saves having to install the module repeatedly during testing.
 
-use lib '/home/ron/perl.modules/CGI-Application-Demo-Dispatch/lib';
 use strict;
 use warnings;
 
@@ -26,7 +20,7 @@ CGI::Application::Dispatch -> dispatch
  table       =>
  [
   ''         => {app => 'Menu', rm => 'display'},
-  ':app'     => {rm => 'initialize'},
+  ':app'     => {rm => 'display'},
   ':app/:rm' => {},
  ],
 );

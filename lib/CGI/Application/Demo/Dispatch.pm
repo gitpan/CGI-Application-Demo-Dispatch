@@ -3,7 +3,7 @@ package CGI::Application::Demo::Dispatch;
 # Author:
 #	Ron Savage <ron@savage.net.au>
 
-our $VERSION = '1.03';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
@@ -39,6 +39,43 @@ A classic CGI script:
 		],
 	);
 
+A Plack script:
+
+	#!/usr/bin/env perl
+	#
+	# Run with:
+	# starman -l 127.0.0.1:5021 --workers 1 httpd/cgi-bin/cgi/application/demo/dispatch/dispatch.psgi &
+	# or, for more debug output:
+	# plackup -l 127.0.0.1:5021 httpd/cgi-bin/cgi/application/demo/dispatch/dispatch.psgi &
+
+	use strict;
+	use warnings;
+
+	use CGI::Application::Dispatch::PSGI;
+
+	use Plack::Builder;
+
+	# ---------------------
+
+	my($app) = CGI::Application::Dispatch -> as_psgi
+	(
+		 prefix      => 'CGI::Application::Demo::Dispatch',
+		 table       =>
+		 [
+		  ''         => {app => 'Menu', rm => 'display'},
+		  ':app'     => {rm => 'initialize'},
+		  ':app/:rm' => {},
+		 ],
+	);
+
+	builder
+	{
+		enable "Plack::Middleware::Static",
+		path => qr!^/(assets|favicon|yui)/!,
+		root => '/dev/shm/html';
+		$app;
+	};
+
 A modern FCGI script:
 
 	use strict;
@@ -50,7 +87,7 @@ A modern FCGI script:
 
 	# ---------------------
 
-	my($proc_manager) = FCGI::ProcManager -> new({processes => 2});
+	my($proc_manager) = FCGI::ProcManager -> new({n_processes => 2});
 
 	$proc_manager -> pm_manage();
 
@@ -131,8 +168,8 @@ help on unpacking and installing distros.
 
 =head1 Installation
 
-All these assume your doc root is /var/www.
-This really should be read from a config file.
+All these assume your doc root is /dev/shm/html (/dev/shm/ is Debian's RAM disk).
+This really should be read from a config file. See Base.pm line 18.
 
 You will need to patch C<CGI::Application::Demo::Dispatch::Base>, since it where C<HTML::Template>'s
 tmpl_path is stored, if using another path.
